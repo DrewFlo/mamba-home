@@ -1,0 +1,71 @@
+Cloud Native Architecture Migration Strategies
+Matt Stine
+
+Software Architecture Podcast
+
+why?
+  balance agility and resiliance
+  devops and Continous delivery both on Cloud and Architecture
+
+what (cloud native)
+  maturity models
+    multiple levels
+      gives you multiple achievable targets
+      easier to quantify effort to move levels
+      should develop my own maturity model
+      slide 21 example
+
+selection strategy
+  consider ROI - cheap not always good, expensive not always bad
+  SNAP analysis
+  trying to understand:
+    technical complexity vs. business criticality
+    slide 31
+
+Lift and Shift
+  what? cant just move the app, it will need changes.
+  whats the MVP (minimum viable port) - least amount of changes to get to the new target environment
+  go maturity level 0 to start.  dont be done!  need to improve maturity
+
+Decomposition Strategies
+  bounded contexts...
+  Value Streams
+    from concept to cash - idea to imp - how do we get to the imp/cash
+    has a velocity - speed in a given direction - biz says when and where
+    let biz have unique streams, better overall
+  Single Responsibility Principle
+    one class one responsibility
+  Failure Domains
+    unique reasons to failure per app, with two apps together, two failure points.
+    seperate to get one failure point per
+  Anti-Corruption Layers
+    cleanup data coming from external contexts/systems
+
+Strategic DDD - Domain Driven Design
+Bounded Context
+  ubiquitous language - words/concepts mean the same to you and me ex. Party/Person
+Context map
+  how do the BC's interact?
+
+Anti-Corruption Layers
+    slide 43
+    microservice calls adapter->translator->facade
+    adapter - negotiates protocall
+    trans - maps data
+    facade - fakes out each side to not know about each other
+
+Strangler Pattern (Fowler)
+  no new dev in monolith
+  new microservice are greenfield/semi-greenfield
+    get good at micorservices
+  then start replacing monolith functionality
+  slide 47
+Hexagonal Architecture aka Ports and Adapters
+  slide 51
+  A - api gateway
+  clients call core through API
+  core calls legacy/external through API\
+Should you Start Cloud Native?
+  slide 53
+  App Continuum
+  

@@ -1,0 +1,93 @@
+JavaScript part 1 - Raju Gandhi
+get these slides
+
+2015 - massive update, first update since 2007
+moving to a year to year update - smaller set of changes
+
+TypeScript - compiles down to javascript (MS effort)
+ahead of curve in javascript - recommend to commitee to implement in javascript
+  -annotations/decorators (now coming to javacript 2018/2019)
+
+ES2016
+
+variable hoisting - moving var definitions to the top of function
+new keyword - let - block scoped, overrides the hoisting
+new keywork - const - var immutable after declaration ex. SOME_CONST (like Java)
+var is dead and probably using const more than let
+
+default values
+no function overloading/overriding - number of passed in arguments doesnt matter
+undefined checks - if(!x) x = 10; or function rect(x, y = 10) or rect(x=10, y=x)
+  rect.length = 2 //number of parms for func
+
+  statement = returns nothing
+  expression = returns something
+
+arrow functions
+function rect(x,y) {
+return [x,y]
+}
+same as:
+const rect = (x,y) => [x,y];
+const rect = (x,y) => {
+  return [x,y]
+} // once braces are added, return must be present
+javascript filter function?
+
+when using this it refers to whatever is left of the .(dot)
+when using => 'this' is defined at compile time not run time (like when not using =>)
+this in => (fat arrow) funciton might be tricky
+
+new keyword
+cant use => as a constructor
+
+Destructuring
+
+obj = //blah
+
+const name = obj.name
+same as:
+const {name:n} = obj
+var n now equals name
+const {name} = obj //now local name = obj.name - local var and key name have to match
+const {address:{zipCode;z}}=obj;
+now z=78249
+function destruct({name, age}){ blah }
+destruct(obj) //obj can have any attributes as long as it has name, age at least
+
+const rgba = [ 10, 20, 30, 0.9];
+
+const [,,b] = rgba;
+b = 30
+const [r] = rgba;
+r = 10
+',,' -> pockets
+
+regExpr = exec function?
+const PHONE_MATCH = //something
+let [, city,area, lcoal] = PHONE_MATCH.exec('210-123-4444');
+first pocket?
+
+Spread Operator
+...
+
+Spread Args
+rect(3,4,5,6,7,8)
+arguments.length // 6 for rect
+Array keyword? Array.prototype.slice
+
+Maps
+
+objs - keys always strings, get converted if needed
+
+new Map();
+not a Hashmap, just a Map
+myMap.set(true, "boolean true");
+myMap.set("true", "String true");
+
+java/javascript = weak maps?
+
+new Set();
+weak sets?
+
+lab 2

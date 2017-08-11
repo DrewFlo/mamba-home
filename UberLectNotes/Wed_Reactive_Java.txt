@@ -1,0 +1,42 @@
+Wed
+Venkat Subramaniam
+Building Reactive Applications
+
+what is reactive programming
+  message-driven
+  elastic - leverage cloud
+  resilient - graceful failures,
+  responsive - infinite scrolling, JIT data,
+what its not
+  multithreading
+  futures
+  callbacks
+
+  next logical step to functional programming
+
+
+Respect Failures, from the get-go
+  What if error is just another form of data?
+
+Observerable - data flow iterator
+
+Java 8
+Stream vs. Observable
+
+Stream                        Observable
+dataflow                      dataflow
+push                          push
+                              end signal
+good luck                     treat error as data
+
+Observable
+---data channel--- open  closed-as soon as error come thru error channel - circuit breaker concept
+---error channel---
+---complete channel---
+ 1 signal thru error or complete channel, never more than 1
+
+ RX java - netflix inspired
+
+ io.reactivex.Observable
+
+agiledeveloper.com examples

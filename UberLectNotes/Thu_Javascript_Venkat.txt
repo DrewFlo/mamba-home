@@ -1,0 +1,340 @@
+of====his notes=====
+
+Programming with JavaScript - Method to Madness
+Venkat Subramaniam
+venkats@agiledeveloper.com
+@venkat_s
+
+Code:
+Use svn, Tortoisesvn (Windows), git-svn,...
+https://www.agiledeveloper.com/svn/code/uberconf2017js
+Userid: uberconf2017js
+Password: script
+
+Part 1: Getting the Feet Wet:
+-What's wrong with JavaScript?
+-What's good about it?
+-; is really not optional
+-use === instead of ==
+-the mess of var
+-use option strict
+-no block scope with var
+-quit using var
+-let
+-differences between let and var
+	-can't redefine
+  -provides block scope
+-const
+-know what is really const
+-making the object a constant
+-writing functions
+-Exercise
+
+Part 2: Diving into JavaScript:
+-default parameters
+ -sending value
+ -sending no value
+ -sending undefined
+ -where can they appear
+-rest operator
+-rest only one and only last
+-spread
+-arrow functions
+-benefits
+-higher-order functions
+-looping
+-looping with index
+-template literals
+-multiline strings
+-Exercise
+
+Part 3: Exploring Object and Classes:
+-creating an object
+-prototype of an object
+-creating a class
+ -constructor and toString
+-what does creating an object mean?
+-instance vs. static functions
+-examining properties
+-inheritance
+ -calling method on base
+-default passthrough
+-prototypal inheritance
+-gets are deep sets are shallow
+-hasOwnProperty
+
+semi colon trickery
+return
+	n * 2; 
+not hte same as:
+return n * 2;
+
+JS adds a semi at the end of line 69
+
+"====code snippet===" cautiong with semicolons
+var foo = function(n) {
+  if(n > 5) {
+    return n;
+  } else {
+    return 
+      n * 2;
+  }
+}
+
+console.log(foo(6));
+console.log(foo(3));
+"====code snippet===" 
+
+== vs. ===
+== converts then compares
+=== strict equality, no coversion
+use !== instead of 
+
+"====code snippet==="equals mess
+var a = "1";
+var b = 1;
+var c = "1.0";
+
+console.log(a == b);
+console.log(b == c);
+console.log(a == c);
+
+//== it performs conversion and comparison
+"====code snippet==="
+"====code snippet==="use three equals
+var a = "1";
+var b = 1;
+var c = "1.0";
+
+console.log(a === b);
+console.log(b === c);
+console.log(a === c);
+
+//instead of using == use ===
+//instead of using != use !==
+"====code snippet==="
+
+var bad, use let
+no var means global variable
+"use strict";  top of file, forces some stuff like use var
+var has no block scope due to hoisting
+initilization is hoisted to top, assignment is left at definition
+let is block scoped
+
+"====code snippet==="forgetting var
+var foo = function() {
+  var local1 = 4;
+  console.log(local1);        
+  
+  local2 = 7;  //oops, becomes global
+  console.log(local2);
+}
+
+foo();
+//console.log(local1); //ERROR
+console.log(local2);
+"====code snippet==="
+
+ha, dont use let, use const - immutable values
+**lamda expressions**
+JS primitive types bool, number, string, undefined, null, symbol (<-new)
+JS Strings are immutable
+
+const protects reference not object
+"====code snippet==="use strict
+"use strict";
+
+var foo = function() {
+  var local1 = 4;
+  console.log(local1);        
+  
+  local2 = 7;  //ERROR
+  console.log(local2);
+}
+
+foo();
+//console.log(local1); //ERROR
+console.log(local2);
+"====code snippet==="
+"====code snippet==="var has not block scope
+var foo = function() {
+  var local1 = 4;  
+  console.log(local1);
+  
+  {
+    var local2 = 7; //var has no block scope
+    console.log(local2);
+  }
+  
+  console.log(local2);
+}
+
+foo();
+"====code snippet==="
+"====code snippet==="using let
+let foo = function() {
+  let local1 = 4;
+  console.log(local1);
+  
+  //let local1 = 7; //ERROR, already defined
+  //console.log(local1);
+  
+  {
+    let local2 = 7; //block scope
+    console.log(local2);
+  }                   
+  
+  //console.log(local2); //ERROR, undefined.
+}
+
+foo();
+"====code snippet==="
+"====code snippet==="use const as much as possible
+let a = 4;
+
+console.log(a);
+
+a = 7;
+console.log(a);
+
+const b = 4;
+console.log(b);
+b = 4; //ERROR
+"====code snippet==="
+"====code snippet==="know what is const
+//"use strict"; //try uncommenting this and run
+const max = 100;
+console.log(max);
+//max = 200; //ERROR
+
+const ok = true;
+console.log(ok);
+//ok = true; //ERROR
+
+const greet = 'hello'; //strings are immutable
+
+//greet = 'bye'; //ERROR
+console.log(greet);
+greet[0] = 'F'; //this has nothing to do with const, but string itself is immutable
+console.log(greet);
+
+// when you say const x = ...whatever...
+// x can't change. It does not say anything about
+// ...whatever...
+"====code snippet==="
+"====code snippet==="protects reference not object
+const sam = { name: 'Sam', age: 2 };
+console.log(sam);
+
+//sam = { name: 'Sam', age: 2 }; //ERROR
+
+sam.age = 4;
+console.log(sam);
+"====code snippet==="
+freeze
+const sam = Object.freeze({name: 'Andy', age: 40});
+console.log(sam);
+
+sam.age = 35; //value not changed due to freeze but no error on this line
+
+"====code snippet==="freeze
+//"use strict"; //try uncommenting this and run the code
+
+const sam = Object.freeze({ name: 'Sam', age: 2 });
+console.log(sam);
+
+//sam = { name: 'Sam', age: 2 }; //ERROR
+
+sam.age = 4;
+console.log(sam);
+"====code snippet==="
+"====code snippet==="defining function one way
+function foo() {
+  console.log('foo called...');
+}
+
+foo();
+
+function foo() {
+  console.log('foo redefined...');
+}
+
+foo();
+//hoisting plays an unpleasant role here
+"====code snippet==="
+"====code snippet==="another way to write function
+var foo = function() {
+  console.log('foo called...');
+}
+
+foo();
+
+foo = function() {
+  console.log('foo redefined...');
+}
+
+foo();
+"====code snippet==="
+
+"====code snippet==="use const to define function also
+const foo = function foo() {
+  console.log('foo called...');
+}
+
+foo();
+
+// foo = function() {  //ERROR
+//   console.log('foo redefined...');
+// }
+"====code snippet==="
+
+"===========PART 2============"
+JS no function overloading
+const pow = function pow (n , e=2){
+	return Math.pow(n, e);
+}
+
+const max = function(...values) { //... <- the fancy thing Rest
+	return values.reduce((large, e) => large <e ? e :large, values[0]);
+}
+max(1,5,17) //returns 17
+
+===Part 2===
+
+arrow functions
+
+Java -> //thin arrow
+Javascript => //fat arrow
+
+(parameter list) => body  // condenses function declaration
+
+dynamic scope - figure out at runtime
+lexical scope - figure out from reading the code
+
+most languages use lexical scoping
+
+setTimeout?
+
+use arrow function if it is short
+more lines makes it complex
+
+High-order functions
+
+filter/map/reduce ??
+const numbers = [1,2,3];
+for(const [i, e] of numbers.entries()) {
+	console.log(i + " " + e);
+}
+using deconstruction
+
+??working with JSON, convert to? what, can i use this stuff to 
+
+-template literals
+back tick ` book and price
+
+npm library sprintf formats dates/strings
+
+-multi-line strings
+
+bind function?
+

@@ -1,0 +1,76 @@
+Software Architecture Fundamentals Workshop
+Neal Ford/Mark Richards
+
+nealford.com/katas
+
+must know the tradeoffs
+
+soft skills
+
+system quality attributes "-ilities"
+
+deliver bad news as early as possible
+
+solve business problems, not accepting solutions //F-16
+
+big ball of mud - architecture - level 0
+
+-layered arechitectgure
+-event driven architecture
+	mediator topology
+	broker topology - no mediator
+-microkernal architecture aka plug-in architecture
+	ex. eclipse/browser - core stuff many, many plug-ins for custom functionality
+-sacrificial architecture
+	
+Technical Writing Skills
+	Software more about communication than technology
+	"The Sense of Style" - writing book
+	passive voice - bad
+	revise everything
+		important documentation	
+		proposals 
+		emails
+		everything
+
+Part 2
+
+dont be an armchair, get back in the code
+pair with devs
+take on low criticality/prototype stuff
+
+architect for change
+	reduce dependencies
+	increase decoupling
+	leverage standards
+		industry standards
+		corporate standards
+	product-agnostic architecture
+		ex. heavy dependence on vendor product
+	domain-specific architecture
+
+Arch Anti-Pattern - Vendor King
+	last 10% trap - first 80% easy, fast - next 10 hard, but doable - last 10 impossible
+	solution - vendor as a service, can be augmented or replaced as needed
+
+space-based architecture
+	
+history
+	pets.com
+	IBM San Francisco project
+
+bounded context
+
+LMAX
+
+online twtitter app from groups - can throw in google thing - try out react
+
+
+2 kinds of meetings
+	imposed upon
+	imposed meetings
+if its important, know how to white board it
+
+imposter syndrome
+
+

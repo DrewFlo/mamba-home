@@ -1,0 +1,39 @@
+Microservices AntiPatterns
+Mark Richards
+www.
+
+AntiPatterns vs. Pitfalls
+
+Ap starts good then gets bad
+Pitfalls always bad
+
+AP - data-driven migration
+  data is a corporate asset
+  not an application asset
+
+  break up services first, then data - fix data along the way
+  Book - 'Refactoring Databases'
+
+AP - function driven identification
+  function-driven
+  data-driven
+  on their own bad
+  use both at same time
+
+AP - all the world's a stage
+  doing work that should be done in Devops - staging tech etc.
+
+AP - hop in the bus
+  what to do
+    contract transformation
+    service orchestration
+
+  !Policy summary orchestrator - can build now dummy all data, fill in services as they are created!?!?!
+
+    protocol-agnostic heterogeneous interoperability
+    aggregate functionality
+
+AP - timeout
+  solve with circuit breaker pattern
+
+AP - reach-in reporting

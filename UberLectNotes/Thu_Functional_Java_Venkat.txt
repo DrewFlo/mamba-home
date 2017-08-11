@@ -1,0 +1,75 @@
+Functional Programming in Java 8
+Venkat Subramaniam
+
+Functional favors (requires?) immutable state
+
+OO(obj oriented) - 1990 adopted 1967 created...
+
+FP (based on lamda calculus) 1929 created 20?? adopted
+
+goto is to structural programming
+assignemnt is to functional programming
+
+functional style (can mutate, but should try not to) vs. purely function (requires immutability)
+
+a function has name/return type/parm list/body
+
+lamda expression is an anonymous function
+	no name
+	has body
+	has parms
+	structure of lamda expression : (parameter list) -> body
+	no return type - inferred
+	single line function, try not to use multiple lines
+
+internal iterator vs external iterator
+
+imperative - you tell what and you tell how
+ 
+numbers is a a list 1..10
+
+numbers.stream? numbers.stream.filter? numbers.stream.filter.map?
+.mapToInt
+.sum 
+.findFirst()
+
+declaritive style, tell what you watn and not how
+
+Imperative 		vs. 		Declarative
+how							what
+mutate						transform
+side-effect					pure
+pass objects				pass functions also
+hard to compose				functional composition
+
+lamdas are stateless, only depend on input
+
+numbers.stream()
+	.map( e-> e * 2)
+	.forEach(System.out::println);
+
+int factor =2;
+
+numbers.stream()
+	.map( e-> e * factor) \\what is factor?
+	.forEach(System.out::println);
+
+//this lambda express shoudl close over the defining scope
+//to bind to the variable factor
+
+//closure is stateful - eats lunch from home// closure carries immutable state
+
+performace good
+
+purity
+
+lambdas in a stream have to be pure functions
+pure functions has no side-effects
+rule
+	1. a pure function does not chagne anything
+	2. a pure function does not depend on anything that may change
+
+closures carry immutable state
+
+stream vs. parrallelStream
+
